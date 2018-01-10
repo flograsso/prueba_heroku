@@ -41,7 +41,7 @@ $appName = explode('.', $domain)[0];
         </div>
 
         <main class="container">
-            <h3>Hi, Developer!</h3>
+            <h3>Hi, Federico!</h3>
             <p>This is a sample app, deployed to Heroku with Mercado Libre's PHP SDK. Feel free to use it as a base, to start building your awesome app!</p>
 
             <div class="row">
