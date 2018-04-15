@@ -14,7 +14,7 @@ $result = $meli->get($url);
 echo '<pre>';
 print_r($result);
 echo '</pre>';
-?>
+
 
 </body>
 </html>
