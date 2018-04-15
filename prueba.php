@@ -1,6 +1,6 @@
 <?php
-require '../Meli/meli.php';
-require '../configApp.php';
+//require '../Meli/meli.php';
+//require '../configApp.php';
 
 $meli = new Meli($appId, $secretKey);
 $params = array();
