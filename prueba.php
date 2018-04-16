@@ -22,13 +22,28 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$sql="CREATE TABLE `tabla1` ( `idPregunta` INT NOT NULL , `datePregunta` DATE NULL , `dateRespuesta` DATE NULL , `pregunta` TEXT NOT NULL , `respuesta` TEXT NOT NULL , `demora` INT NOT NULL );";
+$sql="INSERT INTO `aaaaa` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('1', '2018-04-04', '2018-04-05', 'aaa', 'aa', '111');";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
+    echo "Table MyGuests created successfully<br>";
 } else {
     echo "Error creating table: " . $conn->error;
 }
+
+$sql = "SELECT * FROM `aaaaa` WHERE 1";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo $row['idPregunta'];
+    }
+} else {
+    echo "0 results";
+}
+
+
 $conn->close();
 
 ?>
