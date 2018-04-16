@@ -11,10 +11,10 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 
 	// If code exist and session is empty
 	if(isset($_GET['code']) && !isset($_SESSION['access_token'])) {
+		echo "if1";
 		// //If the code was in get parameter we authorize
 		try{
 			$user = $meli->authorize($_GET["code"], $redirectURI);
-			echo json_decode($user);
 			// Now we create the sessions with the authenticated user
 			$_SESSION['access_token'] = $user['body']->access_token;
 			$_SESSION['expires_in'] = time() + $user['body']->expires_in;
@@ -23,8 +23,10 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 			echo "Exception: ",  $e->getMessage(), "\n";
 		}
 	} else {
+		echo "if2";
 		// We can check if the access token in invalid checking the time
 		if($_SESSION['expires_in'] < time()) {
+			echo "if3";
 			try {
 				// Make the refresh proccess
 				$refresh = $meli->refreshAccessToken();
