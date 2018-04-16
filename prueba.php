@@ -11,5 +11,4 @@ $result = $meli->get($url, array('item'=>'MLA-617699510','access_token' => $_SES
 echo '<pre>';
 print_r($result);
 echo '</pre>';
-echo "";
 ?>
