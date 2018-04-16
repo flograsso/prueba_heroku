@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$sql="INSERT INTO `aaaaa` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('1', '2018-04-04', '2018-04-05', 'aaa', 'aa', '111');";
+$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('1', '2018-04-04', '2018-04-05', 'aaa', 'aa', '111');";
 
 if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully<br>";
@@ -30,7 +30,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-$sql = "SELECT * FROM `aaaaa` WHERE 1";
+$sql = "SELECT * FROM `tabla1` WHERE 1";
 
 $result = $conn->query($sql);
 
