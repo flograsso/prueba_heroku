@@ -4,8 +4,6 @@ session_start();
 require '../Meli/meli.php';
 require '../configApp.php';
 
-echo $appId;
-echo $secretKey;
 
 $meli = new Meli($appId, $secretKey);
 
@@ -46,6 +44,6 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 	echo '</pre>';
 
 } else {
-	echo '<a href="' . $meli->getAuthUrl($redirectURI, Meli::$AUTH_URL[$siteId]) . '">Login using MercadoLibre oAuth 2.0</a>';
+	echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'">Login using MercadoLibre oAuth 2.0</a>';
 }
 
