@@ -3,10 +3,10 @@
 <?php
 
 
-
-    $id = ($_POST["_id"]);
-    $resource=($_POST["resource"]);
-    $attempts=($_POST["attempts"]);
+$data = json_decode(file_get_contents('php://input'), true);
+    $id = ($data["_id"]);
+    $resource=($data["resource"]);
+    $attempts=($data["attempts"]);
 
 $date1='2018-04-05';
 $date2='2018-04-05';
