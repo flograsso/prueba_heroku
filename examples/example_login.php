@@ -37,6 +37,8 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 			  	echo "Exception: ",  $e->getMessage(), "\n";
 			}
 		}
+		else
+			echo "Sesion NO expirada";
 	}
 
 	echo '<pre>';
