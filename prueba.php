@@ -32,8 +32,9 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "id:".$row['idPregunta']."<br>";
-        echo "id:".$row['pregunta']."<br>";
-        echo "id:".$row['respuesta']."<br>";
+        echo "preg:".$row['pregunta']."<br>";
+        echo "resp:".$row['respuesta']."<br>";
+        echo "demor:".$row['demora']."<br>";
     }
 } else {
     echo "0 results";

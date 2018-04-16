@@ -4,7 +4,8 @@
 
 
 $data = json_decode(file_get_contents('php://input'), true);
-    $id = ($data["_id"]);
+    $id = ($data["user_id"]);
+    $topic=($data["topic"]);
     $resource=($data["resource"]);
     $attempts=($data["attempts"]);
 
@@ -26,7 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('666', '2018-04-04', '2018-04-05', '123', '$id', '111');";
+$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('$id', '2018-04-04', '2018-04-05', '$topic', '$resource', '$attempts');";
 $conn->query($sql);
 
 $conn->close();
