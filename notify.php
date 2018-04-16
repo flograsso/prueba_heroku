@@ -19,8 +19,7 @@ $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
-echo $db;
-echo $server;
+
 $conn = new mysqli($server, $username, $password, $db);
 // Check connection
 if ($conn->connect_error) {
@@ -29,5 +28,7 @@ if ($conn->connect_error) {
 
 $sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('$id', '2018-04-04', '2018-04-05', '$resource', '$attempts', '111');";
 $conn->query($sql);
+
+$conn->close();
 
 ?>
