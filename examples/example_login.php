@@ -14,6 +14,7 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 		echo "if1";
 		// //If the code was in get parameter we authorize
 		try{
+			$redirectURI='https://pruebameli.herokuapp.com/examples/example_login.php';
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
 			$_SESSION['access_token'] = $user['body']->access_token;
