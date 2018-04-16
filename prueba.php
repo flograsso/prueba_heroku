@@ -22,5 +22,13 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
+$sql="CREATE TABLE `tabla1` ( `idPregunta` INT NOT NULL , `datePregunta` DATE NULL , `dateRespuesta` DATE NULL , `pregunta` TEXT NOT NULL , `respuesta` TEXT NOT NULL , `demora` INT NOT NULL );";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table MyGuests created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+$conn->close();
 
 ?>
