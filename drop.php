@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$sql = "DROP TABLE `tabla1` ";
+$sql = "CREATE TABLE `preguntas` ( `idPregunta` INT NOT NULL , `textoPregunta` TEXT NULL , `estadoPregunta` TEXT NULL , `fechaRecibida` DATE NULL , `textoRespuesta` TEXT NULL , `fechaRespuesta` DATE NULL , `idUsuario` INT NULL , `idItem` TINYTEXT NULL , `demoraRtaSeg` INT NULL );";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
