@@ -3,11 +3,11 @@
 <?php
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $id = ($_POST["_id"]);
     $resource=($_POST["resource"]);
     $attempts=($_POST["attempts"]);
-}
+
 $date1='2018-04-05';
 $date2='2018-04-05';
 http_response_code(200);
@@ -26,7 +26,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('666', '2018-04-04', '2018-04-05', '123', '123', '111');";
+$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('666', '2018-04-04', '2018-04-05', '123', '$id', '111');";
 $conn->query($sql);
 
 $conn->close();
