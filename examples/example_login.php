@@ -4,6 +4,9 @@ session_start();
 require '../Meli/meli.php';
 require '../configApp.php';
 
+echo $appId;
+echo $secretKey;
+
 $meli = new Meli($appId, $secretKey);
 
 if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
