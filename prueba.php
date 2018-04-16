@@ -22,13 +22,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('1', '2018-04-04', '2018-04-05', 'aaa', 'aa', '111');";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully<br>";
-} else {
-    echo "Error creating table: " . $conn->error;
-}
 
 $sql = "SELECT * FROM `tabla1` WHERE 1";
 
@@ -37,7 +31,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo $row['idPregunta'];
+        echo "id:".$row['idPregunta']."<br>";
+        echo "id:".$row['pregunta']."<br>";
+        echo "id:".$row['respuesta']."<br>";
     }
 } else {
     echo "0 results";
