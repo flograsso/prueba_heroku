@@ -14,7 +14,7 @@ if(isset($_GET['code']) || isset($_SESSION['access_token'])) {
 		// //If the code was in get parameter we authorize
 		try{
 			$user = $meli->authorize($_GET["code"], $redirectURI);
-			
+			echo json_decode($user);
 			// Now we create the sessions with the authenticated user
 			$_SESSION['access_token'] = $user['body']->access_token;
 			$_SESSION['expires_in'] = time() + $user['body']->expires_in;
