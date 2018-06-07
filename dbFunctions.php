@@ -8,7 +8,6 @@ function setValueDb($table, $field, $value)
 {
     global $conn;
     $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
-    echo "INSERT INTO `$table` (`$field`) VALUES ('$value');";
     $conn->query($sql);
 
 }
@@ -27,6 +26,7 @@ function getValueDb($table, $field)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($outp);
     return $outp['$field'];
 
   
