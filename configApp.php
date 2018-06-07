@@ -11,7 +11,7 @@ $secretKey = getenv('Secret_Key');
 /* The Redirect url */
 $redirectURI = getenv('Redirect_URI');
 
-$access_token = getenv('access_tocken');
+$access_token = getenv('access_token');
 
 $refresh_token = getenv('refresh_token');
 
