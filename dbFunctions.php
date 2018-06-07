@@ -35,7 +35,7 @@ function getValueDb($table, $field)
 function emptyDB($table)
 {
     global $conn;
-    $sql="DELETE FROM FROM `$table` WHERE 1;";
+    $sql="DELETE FROM `$table` WHERE 1;";
     $conn->query($sql);
  
 }
