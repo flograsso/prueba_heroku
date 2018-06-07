@@ -32,6 +32,6 @@ function getValue($table, $field)
     }
 }
 
-echo getValue("token","access_token");
+echo "acces_token: ". getValue("token","access_token");
 
 ?>
