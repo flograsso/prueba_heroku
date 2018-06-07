@@ -27,7 +27,7 @@ function getValueDb($table, $field)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-    return $outp[$field];
+    return $outp['$field'];
 
   
 }
