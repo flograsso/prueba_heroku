@@ -41,7 +41,7 @@ function emptyDB($table)
 }
 
 
-emptyDB('token');
+
 echo "acces_token: ". getValueDb("token","access_token") ;
 
 ?>
