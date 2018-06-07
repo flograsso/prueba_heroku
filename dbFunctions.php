@@ -4,12 +4,11 @@
 require_once 'connection.php';
 
 
-function setValueDb($table, $field, $value)
+function setValueDb($table, $fields, $values)
 {
     global $conn;
-    $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
+    $sql="INSERT INTO `$table` ($field) VALUES ($value);";
     $conn->query($sql);
-    echo "valor agregado";
 
 }
 
@@ -42,7 +41,7 @@ function emptyDB($table)
 }
 
 
-
+emptyDB('token');
 echo "acces_token: ". getValueDb("token","access_token") ;
 
 ?>
