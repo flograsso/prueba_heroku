@@ -1,4 +1,4 @@
 <?php
 
-$_ENV["test"]="new_variable";
+putenv("test=fred");
 echo getenv('test');
