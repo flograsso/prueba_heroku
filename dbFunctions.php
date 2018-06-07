@@ -11,7 +11,7 @@ $DB_NAME=substr($url["path"], 1);
 //get connection
 //(MySQLi Object-Oriented)
 
-global $conn;
+
 $conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 
 if(!$conn){
