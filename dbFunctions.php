@@ -29,9 +29,11 @@ function getValueDb($table, $field)
         $outp = array();
         $outp = $result->fetch_all(MYSQLI_ASSOC);
         return $outp;
-
-
     }
+    else
+        {
+            echo "error";
+        }
 }
 
 echo "acces_token: ". getValueDb("token","access_token");
