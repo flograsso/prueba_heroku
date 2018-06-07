@@ -32,4 +32,3 @@ function getValueDb($table, $field)
 
 echo "acces_token: ". getValueDb("token","access_token");
 
-?>
