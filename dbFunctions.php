@@ -1,6 +1,6 @@
 
 <?php
-require_once("connection.php");
+include("connection.php");
 
 function setValueDb($table, $field, $value)
 {
