@@ -18,6 +18,8 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
 			putenv("access_token=".$user['body']->access_token);
+			echo "arraytoken: ".$user['body']->access_token;
+			echo "env: ". getenv('access_token');
 			putenv("expires_in=". (time() + $user['body']->expires_in));
 			putenv("refresh_token=".$user['body']->refresh_token);
 
