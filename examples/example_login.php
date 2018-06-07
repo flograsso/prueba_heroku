@@ -4,10 +4,16 @@
 
 require '../Meli/meli.php';
 require '../configApp.php';
+require '../dbFunctions.php';
+
+
 
 
 $meli = new Meli($appId, $secretKey);
-echo "env: ". getenv('access_token');
+
+
+
+
 if(isset($_GET['code']) || !empty($access_token)) {	
 
 	if(isset($_GET['code']) && empty($access_token)) {

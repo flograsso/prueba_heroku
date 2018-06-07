@@ -6,3 +6,10 @@ Autenticación
 3) Con ese code (que dura 6hs) pido el acces_token que es lo que me da acceso a los recursos privados.
 4) El ACCES_TOKEN es quien me da acceso a todo. Este dura 8hs
 5) Si la app esta configurada como offline, tambien recibiremos un refresh_token 
+
+
+
+DB
+
+Crear DB 
+$sql = "CREATE TABLE `token` ( `access_token` TEXT NULL , `refresh_token` TEXT NULL , `expires_in` TEXT NULL );";
