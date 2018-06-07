@@ -15,4 +15,6 @@ if(!$conn){
 	die("Connection failed: " . $conn->error);
 }
 
+echo "Conexion OK";
 
+?>
