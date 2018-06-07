@@ -1,10 +1,8 @@
 <?php
 
-
-
-require '../Meli/meli.php';
-require '../configApp.php';
-include '../dbFunctions.php';
+require ('../Meli/meli.php');
+require ('../configApp.php');
+include ("../dbFunctions.php");
 
 
 
@@ -69,3 +67,4 @@ if(isset($_GET['code']) || !empty($access_token)) {
 
 
 
+?>

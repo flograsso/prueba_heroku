@@ -1,6 +1,6 @@
 
 <?php
-include("connection.php");
+include ("../connection.php");
 
 function setValueDb($table, $field, $value)
 {
@@ -31,3 +31,4 @@ function getValueDb($table, $field)
 
 echo "acces_token: ". getValueDb("token","access_token");
 
+?>
