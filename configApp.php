@@ -22,6 +22,7 @@ $expires_in = getenv('expires_in');
 If you don't know your site_id go to our sites resources: https://api.mercadolibre.com/sites  */
 $siteId = 'MLA';
 
+echo $access_token;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////

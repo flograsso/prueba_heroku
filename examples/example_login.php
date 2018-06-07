@@ -19,7 +19,6 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			// Now we create the sessions with the authenticated user
 			putenv("access_token=".$user['body']->access_token);
 			putenv("expires_in=". (time() + $user['body']->expires_in));
-			echo (time() + $user['body']->expires_in);
 			putenv("refresh_token=".$user['body']->refresh_token);
 
 			echo "Autenticado";
