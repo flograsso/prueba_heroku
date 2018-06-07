@@ -9,6 +9,9 @@ function setValueDb($table, $field, $value)
     global $conn;
     $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
     $conn->query($sql);
+    if($conn){
+        echo "agregado OK";
+    }
 
 }
 
