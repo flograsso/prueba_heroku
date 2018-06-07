@@ -1,3 +1,4 @@
 <?php
 
-$_ENV["MYENV"]="new_variable";
+$_ENV["test"]="new_variable";
+echo getenv('test');
