@@ -7,41 +7,47 @@ require '../configApp.php';
 
 $meli = new Meli($appId, $secretKey);
 
-if(isset($_GET['code']) || isset($_SESSION['access_token'])) {	
+if(isset($_GET['code']) || !empty($access_token)) {	
 
-	// If code exist and session is empty
-	if(isset($_GET['code']) && !isset($_SESSION['access_token'])) {
-		echo "if1";
-		// //If the code was in get parameter we authorize
+	if(isset($_GET['code']) && empty($access_token)) {
+		echo "No hay token y si hay code";
+		//Con el code pido un token
 		try{
 			$redirectURI='https://pruebameli.herokuapp.com/examples/example_login.php';
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
-			$_SESSION['access_token'] = $user['body']->access_token;
-			$_SESSION['expires_in'] = time() + $user['body']->expires_in;
-			$_SESSION['refresh_token'] = $user['body']->refresh_token;
+			putenv("access_token=".$user['body']->access_token);
+			putenv("expires_in=".time() + $user['body']->expires_in);
+			putenv("refresh_token=".$user['body']->refresh_token);
+
+			echo "Autenticado"
+			
 		}catch(Exception $e){
 			echo "Exception: ",  $e->getMessage(), "\n";
 		}
 	} else {
-		echo "if2";
+		//Access token seteado
+		echo "Access token seteado";
 		// We can check if the access token in invalid checking the time
-		if($_SESSION['expires_in'] < time()) {
-			echo "if3";
+		if($expires_in < time()) {
+			echo "Tiempo del token vencido.";
 			try {
 				// Make the refresh proccess
 				$refresh = $meli->refreshAccessToken();
 
 				// Now we create the sessions with the new parameters
-				$_SESSION['access_token'] = $refresh['body']->access_token;
-				$_SESSION['expires_in'] = time() + $refresh['body']->expires_in;
-				$_SESSION['refresh_token'] = $refresh['body']->refresh_token;
+				putenv("access_token=".$refresh['body']->access_token);
+				putenv("expires_in=".time() + $refresh['body']->expires_in);
+				putenv("refresh_token=".$refresh['body']->refresh_token);
+
+				echo "Token actualizado"
+
 			} catch (Exception $e) {
 			  	echo "Exception: ",  $e->getMessage(), "\n";
 			}
 		}
 		else
-			echo "Sesion NO expirada";
+			echo "Sesion NO expirada. Correctamente autenticado";
 	}
 
 	echo '<pre>';

@@ -11,6 +11,13 @@ $secretKey = getenv('Secret_Key');
 /* The Redirect url */
 $redirectURI = getenv('Redirect_URI');
 
+$access_token = getenv('access_tocken');
+
+$refresh_token = getenv('refresh_token');
+
+$expires_in = getenv('expires_in');
+
+
 /* The site id of the country where your application will work.
 If you don't know your site_id go to our sites resources: https://api.mercadolibre.com/sites  */
 $siteId = 'MLA';
