@@ -1,22 +1,7 @@
 
 <?php
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-//database
-$DB_HOST=$url["host"];
-$DB_USERNAME=$url["user"];
-$DB_PASSWORD=$url["pass"];
-$DB_NAME=substr($url["path"], 1);
-
-//get connection
-//(MySQLi Object-Oriented)
-
-
-$conn = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
-
-if(!$conn){
-	die("Connection failed: " . $conn->error);
-}
+require_once 'connection.php';
 
 
 function setValueDb($table, $field, $value)
@@ -42,11 +27,11 @@ function getValueDb($table, $field)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-    return $outp;
+    return $outp[$field];
 
   
 }
 
-echo "acces_token: ". getValueDb("token","access_token");
+echo "acces_token: ". getValueDb("token","access_token") ;
 
 ?>
