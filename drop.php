@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$sql = "CREATE TABLE `preguntas` ( `idPregunta` INT NOT NULL , `textoPregunta` TEXT NULL , `estadoPregunta` TEXT NULL , `fechaRecibida` DATE NULL , `textoRespuesta` TEXT NULL , `fechaRespuesta` DATE NULL , `idUsuario` INT NULL , `idItem` TINYTEXT NULL , `demoraRtaSeg` INT NULL );";
+$sql = "CREATE TABLE `token` ( `access_token` TEXT NULL , `refresh_token` TEXT NULL , `expires_in` TEXT NULL );";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
