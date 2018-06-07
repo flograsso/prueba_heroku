@@ -4,16 +4,16 @@
 
 require '../Meli/meli.php';
 require '../configApp.php';
-require '../dbFunctions.php';
+include '../dbFunctions.php';
 
 
 
 
 $meli = new Meli($appId, $secretKey);
 
-$access_token=getValue("token","access_token");
-$refresh_token=getValue("token","refresh_token");
-$expires_in=getValue("token","expires_in");
+$access_token=getValueDb("token","access_token");
+$refresh_token=getValueDb("token","refresh_token");
+$expires_in=getValueDb("token","expires_in");
 
 
 if(isset($_GET['code']) || !empty($access_token)) {	
@@ -25,9 +25,9 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			$redirectURI='https://pruebameli.herokuapp.com/examples/example_login.php';
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
-			setValue("token","access_token",$user['body']->access_token);
-			setValue("token","refresh_token",$user['body']->refresh_token);
-			setValue("token","expires_in",(time() + $user['body']->expires_in));
+			setValueDb("token","access_token",$user['body']->access_token);
+			setValueDb("token","refresh_token",$user['body']->refresh_token);
+			setValueDb("token","expires_in",(time() + $user['body']->expires_in));
 
 			echo "Autenticado";
 			

@@ -2,7 +2,7 @@
 <?php
 require_once("connection.php");
 
-function setValue($table, $field, $value)
+function setValueDb($table, $field, $value)
 {
     if ($conn)
     {
@@ -13,13 +13,13 @@ function setValue($table, $field, $value)
     }
 }
 
-function updateAllValues($table, $field, $value)
+function updateAllValuesDb($table, $field, $value)
 {
     $sql="UPDATE `$table` SET '$field'='$value' WHERE 1;";
     $conn->query($sql); 
 }
 
-function getValue($table, $field)
+function getValueDb($table, $field)
 {
     if ($conn)
     {
@@ -33,6 +33,6 @@ function getValue($table, $field)
     }
 }
 
-echo "acces_token: ". getValue("token","access_token");
+echo "acces_token: ". getValueDb("token","access_token");
 
 ?>
