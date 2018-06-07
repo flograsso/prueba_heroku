@@ -4,13 +4,11 @@ require_once("connection.php");
 
 function setValueDb($table, $field, $value)
 {
-    if ($conn)
-    {
-        $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
-        echo "INSERT INTO `$table` (`$field`) VALUES ('$value');";
-        $conn->query($sql);
 
-    }
+    $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
+    echo "INSERT INTO `$table` (`$field`) VALUES ('$value');";
+    $conn->query($sql);
+
 }
 
 function updateAllValuesDb($table, $field, $value)
@@ -21,19 +19,15 @@ function updateAllValuesDb($table, $field, $value)
 
 function getValueDb($table, $field)
 {
-    if ($conn)
-    {
-        $sql="SELECT `$field` FROM `$table` WHERE 1;";
-        echo "SELECT `$field` FROM `$table` WHERE 1;";
-        $result = $conn->query($sql);
-        $outp = array();
-        $outp = $result->fetch_all(MYSQLI_ASSOC);
-        return $outp;
-    }
-    else
-        {
-            echo "error";
-        }
+
+    $sql="SELECT `$field` FROM `$table` WHERE 1;";
+    echo "SELECT `$field` FROM `$table` WHERE 1;";
+    $result = $conn->query($sql);
+    $outp = array();
+    $outp = $result->fetch_all(MYSQLI_ASSOC);
+    return $outp;
+
+  
 }
 
 echo "acces_token: ". getValueDb("token","access_token");
