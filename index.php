@@ -35,7 +35,7 @@ $appName = explode('.', $domain)[0];
 
         <div class="header">
             <div>
-                <h1>Getting Started with Mercado Libre's PHP SDK</h1>
+                <h1>Getting Stsarted with Mercado Libre's PHP SDK</h1>
                 <h2>Official PHP SDK for Mercado Libre's API.</h2>
             </div>
         </div>
