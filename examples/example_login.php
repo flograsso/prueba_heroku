@@ -41,7 +41,7 @@ if(isset($_GET['code']) || !empty($access_token)) {
 				putenv("expires_in=".time() + $refresh['body']->expires_in);
 				putenv("refresh_token=".$refresh['body']->refresh_token);
 
-				echo "Token actualizado"
+				echo "Token actualizado";
 
 			} catch (Exception $e) {
 			  	echo "Exception: ",  $e->getMessage(), "\n";
@@ -59,5 +59,5 @@ if(isset($_GET['code']) || !empty($access_token)) {
 	echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/examples/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
 }
 
-echo "error"
+echo "error";
 
