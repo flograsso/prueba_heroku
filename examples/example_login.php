@@ -7,7 +7,7 @@ require '../configApp.php';
 
 
 $meli = new Meli($appId, $secretKey);
-
+echo "env: ". getenv('access_token');
 if(isset($_GET['code']) || !empty($access_token)) {	
 
 	if(isset($_GET['code']) && empty($access_token)) {
@@ -17,9 +17,7 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			$redirectURI='https://pruebameli.herokuapp.com/examples/example_login.php';
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
-			putenv("access_token=".$user['body']->access_token);
-			echo "arraytoken: ".$user['body']->access_token;
-			echo "env: ". getenv('access_token');
+			putenv("access_token=".$user['body']->access_token);		
 			putenv("expires_in=". (time() + $user['body']->expires_in));
 			putenv("refresh_token=".$user['body']->refresh_token);
 
