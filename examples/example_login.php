@@ -20,7 +20,7 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			putenv("expires_in=".time() + $user['body']->expires_in);
 			putenv("refresh_token=".$user['body']->refresh_token);
 
-			echo "Autenticado"
+			echo "Autenticado";
 			
 		}catch(Exception $e){
 			echo "Exception: ",  $e->getMessage(), "\n";
