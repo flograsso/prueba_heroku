@@ -24,6 +24,7 @@ function getValueDb($table, $field)
     if ($conn)
     {
         $sql="SELECT `$field` FROM `$table` WHERE 1;";
+        echo "SELECT `$field` FROM `$table` WHERE 1;";
         $result = $conn->query($sql);
         $outp = array();
         $outp = $result->fetch_all(MYSQLI_ASSOC);
