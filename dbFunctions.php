@@ -9,9 +9,6 @@ function setValueDb($table, $field, $value)
     global $conn;
     $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
     $conn->query($sql);
-    if($conn){
-        echo "agregado OK";
-    }
 
 }
 
@@ -35,6 +32,16 @@ function getValueDb($table, $field)
   
 }
 
+function emptyDB($table)
+{
+    global $conn;
+    $sql="DELETE FROM FROM `$table` WHERE 1;";
+    $conn->query($sql);
+ 
+}
+
+
+emptyDB("token");
 echo "acces_token: ". getValueDb("token","access_token") ;
 
 ?>
