@@ -7,6 +7,7 @@ function setValue($table, $field, $value)
     if ($conn)
     {
         $sql="INSERT INTO `$table` (`$field`) VALUES ('$value');";
+        echo "INSERT INTO `$table` (`$field`) VALUES ('$value');";
         $conn->query($sql);
 
     }
