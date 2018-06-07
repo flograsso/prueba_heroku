@@ -1,12 +1,12 @@
 <?php
-session_start();
+
 
 require '../Meli/meli.php';
 require '../configApp.php';
 
 
 $meli = new Meli($appId, $secretKey);
-
+echo "a";
 if(isset($_GET['code']) || !empty($access_token)) {	
 
 	if(isset($_GET['code']) && empty($access_token)) {
