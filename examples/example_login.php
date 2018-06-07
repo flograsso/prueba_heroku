@@ -7,7 +7,7 @@ require '../configApp.php';
 
 
 $meli = new Meli($appId, $secretKey);
-echo "a";
+
 if(isset($_GET['code']) || !empty($access_token)) {	
 
 	if(isset($_GET['code']) && empty($access_token)) {
@@ -18,7 +18,8 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
 			putenv("access_token=".$user['body']->access_token);
-			putenv("expires_in=".time() + $user['body']->expires_in);
+			putenv("expires_in=". (time() + $user['body']->expires_in));
+			echo (time() + $user['body']->expires_in);
 			putenv("refresh_token=".$user['body']->refresh_token);
 
 			echo "Autenticado";
@@ -59,5 +60,5 @@ if(isset($_GET['code']) || !empty($access_token)) {
 	echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/examples/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
 }
 
-echo "error";
+
 
