@@ -1,5 +1,5 @@
 <?php
-require_once ('includes/dbFunctions.php');
+require_once ('includes/phpFunctions.php');
  
 sec_session_start();
 ?>
