@@ -9,10 +9,12 @@ if (isset($_POST['email'], $_POST['p'])) {
     global $conn;
     if (login($email, $password, $conn) == true) {
         // Inicio de sesión exitosa
-        header('Location: ../protected_page.php');
+        //header('Location: ../protected_page.php');
+        header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
     } else {
         // Inicio de sesión exitosa
-        header('Location: ../protected_page.php');
+        //header('Location: ../protected_page.php');
+        header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
     }
 } else {
     // Las variables POST correctas no se enviaron a esta página.
