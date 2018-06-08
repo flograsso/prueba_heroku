@@ -9,9 +9,9 @@ include ("../dbFunctions.php");
 
 $meli = new Meli($appId, $secretKey);
 
-//$access_token=getValueDb("token","access_token");
-//$refresh_token=getValueDb("token","refresh_token");
-//$expires_in=getValueDb("token","expires_in");
+$access_token=getValueDb("token","access_token");
+$refresh_token=getValueDb("token","refresh_token");
+$expires_in=getValueDb("token","expires_in");
 
 
 if(isset($_GET['code']) || !empty($access_token)) {	
@@ -42,9 +42,9 @@ if(isset($_GET['code']) || !empty($access_token)) {
 				$refresh = $meli->refreshAccessToken();
 
 				// Now we create the sessions with the new parameters
-				putenv("access_token=".$refresh['body']->access_token);
-				putenv("expires_in=".time() + $refresh['body']->expires_in);
-				putenv("refresh_token=".$refresh['body']->refresh_token);
+				updateAllValuesDb("token",'access_token',$refresh['body']->access_token);
+				updateAllValuesDb("token",'expires_in',time() + $refresh['body']->expires_in);
+				updateAllValuesDb("token",'refresh_token',$refresh['body']->refresh_token);
 
 				echo "Token actualizado";
 

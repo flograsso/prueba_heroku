@@ -32,6 +32,8 @@ function getValueDb($table, $field)
   
 }
 
+
+
 function emptyDB($table)
 {
     global $conn;
