@@ -80,6 +80,7 @@ if (login_check($conn) == true) {
                         		</div>
                             </div>
                             <div class="form-bottom">
+                                
 			                    <form role="form" action="includes/process_login.php" method="post" class="login-form" name="login_form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Email</label>

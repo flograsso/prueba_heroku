@@ -7,6 +7,7 @@ function formhash(form, password) {
     p.name = "p";
     p.type = "hidden";
     p.value = hex_sha512(password.value);
+    alert(p.value);
  
     // Asegúrate de que la contraseña en texto simple no se envíe. 
     password.value = "";

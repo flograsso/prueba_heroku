@@ -11,7 +11,7 @@ function sec_session_start() {
     $httponly = true;
     // Obliga a las sesiones a solo utilizar cookies.
     if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
+        header("Location: https://".$_SERVER['HTTP_HOST']."//error.php?err=Could not initiate a safe session (ini_set)");
         exit();
     }
     // Obtiene los params de los cookies actuales.
