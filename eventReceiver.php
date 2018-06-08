@@ -2,7 +2,7 @@
     <html lang="en" >
 <?php
 
-include ("/examples/example_login.php");
+include "example_login.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
 http_response_code(200);
