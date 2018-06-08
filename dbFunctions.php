@@ -26,7 +26,6 @@ function getValueDb($table, $field)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-    echo json_encode($outp);
     return $outp[$field];
 
   
@@ -43,6 +42,6 @@ function emptyDB($table)
 }
 
 
-echo "acces_token: ". getValueDb("token","access_token") ;
+emptyDB('token');
 
 ?>
