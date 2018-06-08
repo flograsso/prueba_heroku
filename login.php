@@ -109,6 +109,8 @@ if (login_check($conn) == true) {
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
+        <script type="text/JavaScript" src="js/sha512.js"></script> 
+        <script type="text/JavaScript" src="js/forms.js"></script> 
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
