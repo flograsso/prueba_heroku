@@ -9,6 +9,7 @@ function setValueDb($table, $fields, $values)
     global $conn;
     $sql="INSERT INTO `$table` ($fields) VALUES ($values);";
     $conn->query($sql);
+    echo $sql . "<br>;
 
 }
 
@@ -43,7 +44,7 @@ function emptyDB($table)
  
 }
 
-emptyDB('token');
+
 
 
 ?>
