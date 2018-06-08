@@ -7,7 +7,7 @@ require_once 'connection.php';
 function setValueDb($table, $fields, $values)
 {
     global $conn;
-    $sql="INSERT INTO `$table` ($field) VALUES ($value);";
+    $sql="INSERT INTO `$table` (".$field.") VALUES (".$value.");";
     echo $sql;
     $conn->query($sql);
 
