@@ -45,14 +45,15 @@ function login($email, $password, $conn) {
         
         // Hace el hash de la contraseña con una sal única.
         //$password = hash('sha512', $password . $salt);
+        echo "Pass cruda".$password . "<br>";
         $password = hash('sha512', $password);
         if ($stmt->num_rows == 1) {
             // Si el usuario existe, revisa si la cuenta está bloqueada
             // por muchos intentos de conexión.
            
-            echo "db pass" . $db_password;
-            echo "db pass" . $password;
-            echo "db pass" . $email;
+            echo "db pass" . $db_password . "<br>";
+            echo "pass" . $password . "<br>";
+            echo "mail" . $email . "<br>" ;
                 // Revisa que la contraseña en la base de datos coincida 
                 // con la contraseña que el usuario envió.
                 if ($db_password == $password) {
