@@ -15,7 +15,10 @@ http_response_code(200);
 $date1='2018-04-05';
 $date2='2018-04-05';
 
-echo json_encode($data);
+
+foreach ($data as $key => $value) {
+    echo "Key: $key; Value: $value\n";
+}
 
 
 
