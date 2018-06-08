@@ -48,11 +48,7 @@ function login($email, $password, $conn) {
             // Si el usuario existe, revisa si la cuenta está bloqueada
             // por muchos intentos de conexión.
  
-            if (checkbrute($user_id, $conn) == true) {
-                // La cuenta está bloqueada.
-                // Envía un correo electrónico al usuario que le informa que su cuenta está bloqueada.
-                return false;
-            } else {
+
                 // Revisa que la contraseña en la base de datos coincida 
                 // con la contraseña que el usuario envió.
                 if ($db_password == $password) {
@@ -75,7 +71,7 @@ function login($email, $password, $conn) {
 
                     return false;
                 }
-            }
+            
         } else {
             // El usuario no existe.
             return false;
