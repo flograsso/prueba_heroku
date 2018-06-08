@@ -15,16 +15,17 @@ http_response_code(200);
 $date1='2018-04-05';
 $date2='2018-04-05';
 
-
+$str = "{";
 foreach ($data as $key => $value) {
-    echo "Key: $key; Value: $value\n";
+    $str=$str ."$key" . ":" . "$value" . ",";
 }
+$str=$str."}";
 
 
 
 global $conn;
 
-setValueDb("preguntas","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'1','$topic','$resource',NULL,NULL,NULL,NULL,NULL,NULL");
+setValueDb("preguntas","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'1','$topic','$resource',NULL,NULL,'$str',NULL,NULL,NULL");
 
 $conn->close;
 
