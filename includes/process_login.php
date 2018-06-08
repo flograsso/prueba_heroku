@@ -1,5 +1,5 @@
 <?php
-require_once ('includes/phpFunctions.php');
+require_once ('phpFunctions.php');
  
 sec_session_start(); // Nuestra manera personalizada segura de iniciar sesión PHP.
  
