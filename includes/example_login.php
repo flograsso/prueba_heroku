@@ -1,8 +1,8 @@
 <?php
 
-require_once ('includes/Meli/meli.php');
-require_once ('includes/configApp.php');
-include ("includes/dbFunctions.php");
+require_once ('Meli/meli.php');
+require_once ('configApp.php');
+include ("dbFunctions.php");
 
 
 //Variable que mantiene el estado de la conexión
