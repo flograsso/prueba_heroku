@@ -27,9 +27,10 @@ function sec_session_start() {
     session_regenerate_id();    // Regenera la sesión, borra la previa. 
 }
 
-function login($email, $password, $mysqli) {
+function login($email, $password, $conn) {
+    global $conn;
     // Usar declaraciones preparadas significa que la inyección de SQL no será posible.
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
+    if ($stmt = $conn->prepare("SELECT id, username, password, salt 
         FROM users
        WHERE email = ?
         LIMIT 1")) {
@@ -47,7 +48,7 @@ function login($email, $password, $mysqli) {
             // Si el usuario existe, revisa si la cuenta está bloqueada
             // por muchos intentos de conexión.
  
-            if (checkbrute($user_id, $mysqli) == true) {
+            if (checkbrute($user_id, $conn) == true) {
                 // La cuenta está bloqueada.
                 // Envía un correo electrónico al usuario que le informa que su cuenta está bloqueada.
                 return false;
@@ -82,7 +83,8 @@ function login($email, $password, $mysqli) {
     }
 }
 
-function login_check($mysqli) {
+function login_check($conn) {
+    global $conn;
     // Revisa si todas las variables de sesión están configuradas.
     if (isset($_SESSION['user_id'], 
                         $_SESSION['username'], 
@@ -95,7 +97,7 @@ function login_check($mysqli) {
         // Obtiene la cadena de agente de usuario del usuario.
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
  
-        if ($stmt = $mysqli->prepare("SELECT password 
+        if ($stmt = $conn->prepare("SELECT password 
                                       FROM users 
                                       WHERE id = ? LIMIT 1")) {
             // Une “$user_id” al parámetro.
