@@ -9,7 +9,7 @@ include ("../dbFunctions.php");
 
 $meli = new Meli($appId, $secretKey);
 
-$access_token=getValueDb("token");
+$access_token=getAllValuesDb("token");
 //$refresh_token=getValueDb("token","refresh_token");
 //$expires_in=getValueDb("token","expires_in");
 
