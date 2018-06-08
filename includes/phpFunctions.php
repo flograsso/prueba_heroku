@@ -52,6 +52,9 @@ function login($email, $password, $conn) {
                 // Revisa que la contraseña en la base de datos coincida 
                 // con la contraseña que el usuario envió.
                 if ($db_password == $password) {
+                    echo "db pass" . $db_password;
+                    echo "db pass" . $password;
+                    echo "db pass" . $email;
                     // ¡La contraseña es correcta!
                     // Obtén el agente de usuario del usuario.
                     $user_browser = $_SERVER['HTTP_USER_AGENT'];
