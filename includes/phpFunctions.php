@@ -30,6 +30,7 @@ function sec_session_start() {
 function login($email, $password, $conn) {
     global $conn;
     // Usar declaraciones preparadas significa que la inyección de SQL no será posible.
+    echo "in2";
     if ($stmt = $conn->prepare("SELECT id, username, password, salt 
         FROM users
        WHERE email = ?
@@ -41,13 +42,13 @@ function login($email, $password, $conn) {
         // Obtiene las variables del resultado.
         $stmt->bind_result($user_id, $username, $db_password, $salt);
         $stmt->fetch();
- 
+        echo "in2";
         // Hace el hash de la contraseña con una sal única.
         $password = hash('sha512', $password . $salt);
         if ($stmt->num_rows == 1) {
             // Si el usuario existe, revisa si la cuenta está bloqueada
             // por muchos intentos de conexión.
- 
+            echo "in3";
 
                 // Revisa que la contraseña en la base de datos coincida 
                 // con la contraseña que el usuario envió.
