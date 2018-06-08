@@ -10,10 +10,9 @@ include ("../dbFunctions.php");
 $meli = new Meli($appId, $secretKey);
 
 $data = json_decode(getAllValuesDb("token"));
-echo $data;
-$access_token=$data->{"access_token"};
-$refresh_token=$data->{"refresh_token"};
-$expires_in=$data->{"expires_in"};
+$access_token=$data[0]->access_token;
+$refresh_token=$data[0]->refresh_token;
+$expires_in=$data[0]->expires_in;
 
 echo "Access token:".$access_token ."<br>";
 echo "Referesh token:".$refresh_token ."<br>";
