@@ -1,7 +1,7 @@
 <?php
 
-require ('../Meli/meli.php');
-require ('../configApp.php');
+require_once ('../Meli/meli.php');
+require_once ('../configApp.php');
 include ("../dbFunctions.php");
 
 

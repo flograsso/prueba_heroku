@@ -2,8 +2,6 @@
     <html lang="en" >
 <?php
 
-require ('../Meli/meli.php');
-require ('../configApp.php');
 include ("/examples/example_login.php");
 
 $data = json_decode(file_get_contents('php://input'), true);
