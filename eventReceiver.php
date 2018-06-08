@@ -21,9 +21,8 @@ echo "id: " . $id ;
 
 global $conn;
 
-$sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('$id', '2018-04-04', '2018-04-05', '$topic', '$resource', '$attempts');";
-$conn->query($sql);
-echo $sql;
-$conn->close();
+setValueDb("preguntas","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'1','$topic','$resource',NULL,NULL,NULL,NULL,NULL,NULL");
+
+$conn->close;
 
 ?>
