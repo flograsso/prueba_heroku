@@ -18,4 +18,4 @@ setcookie(session_name(),
  
 // Destruye sesión. 
 session_destroy();
-header('Location: ../ index.php');
+header("Location: https://".$_SERVER['HTTP_HOST']."/login.php");
