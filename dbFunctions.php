@@ -29,6 +29,7 @@ function getValueDb($table, $field)
     $outp = $result->fetch_all(MYSQLI_ASSOC);
     echo $outp[$field];
     echo "<br>";
+    echo json_encode($outp);
     return $outp[$field];
 
   
