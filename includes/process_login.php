@@ -8,13 +8,15 @@ if (isset($_POST['email'], $_POST['p'])) {
     $password = $_POST['p']; // La contraseña con hash
     global $conn;
     if (login($email, $password, $conn) == true) {
+        echo "SI";
         // Inicio de sesión exitosa
         //header('Location: ../protected_page.php');
-        header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
+        //header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
     } else {
+        echo "No";
         // Inicio de sesión exitosa
         //header('Location: ../protected_page.php');
-        header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
+        //header("Location: https://".$_SERVER['HTTP_HOST']."/protected_page.php");
     }
 } else {
     // Las variables POST correctas no se enviaron a esta página.
