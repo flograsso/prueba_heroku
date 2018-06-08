@@ -27,10 +27,8 @@ function getAllValuesDb($table)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-
-    echo json_encode($outp). "<br>";
-    echo $outp["access_token"] ."<br>" ;
-    return $outp[$field];
+    
+    return json_encode($outp);
 
   
 }
