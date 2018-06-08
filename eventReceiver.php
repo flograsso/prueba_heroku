@@ -15,13 +15,15 @@ http_response_code(200);
 $date1='2018-04-05';
 $date2='2018-04-05';
 
+echo $id;
+
 
 
 global $conn;
 
 $sql="INSERT INTO `tabla1` (`idPregunta`, `datePregunta`, `dateRespuesta`, `pregunta`, `respuesta`, `demora`) VALUES ('$id', '2018-04-04', '2018-04-05', '$topic', '$resource', '$attempts');";
 $conn->query($sql);
-
+echo $sql;
 $conn->close();
 
 ?>
