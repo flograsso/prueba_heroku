@@ -44,7 +44,8 @@ function login($email, $password, $conn) {
         $stmt->fetch();
         
         // Hace el hash de la contraseña con una sal única.
-        $password = hash('sha512', $password . $salt);
+        //$password = hash('sha512', $password . $salt);
+        $password = hash('sha512', $password);
         if ($stmt->num_rows == 1) {
             // Si el usuario existe, revisa si la cuenta está bloqueada
             // por muchos intentos de conexión.
