@@ -26,6 +26,8 @@ function getValueDb($table, $field)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($outp);
+    echo "<br>";
     return $outp[$field];
 
   
@@ -41,7 +43,7 @@ function emptyDB($table)
  
 }
 
-
 emptyDB('token');
+
 
 ?>
