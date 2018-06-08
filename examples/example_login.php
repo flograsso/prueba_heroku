@@ -9,9 +9,9 @@ include ("../dbFunctions.php");
 
 $meli = new Meli($appId, $secretKey);
 
-$access_token=getValueDb("token","access_token");
-$refresh_token=getValueDb("token","refresh_token");
-$expires_in=getValueDb("token","expires_in");
+$access_token=getValueDb("token");
+//$refresh_token=getValueDb("token","refresh_token");
+//$expires_in=getValueDb("token","expires_in");
 
 echo "Access token:".$access_token ."<br>";
 echo "Referesh token:".$refresh_token ."<br>";

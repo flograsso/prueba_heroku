@@ -20,15 +20,16 @@ function updateAllValuesDb($table, $field, $value)
     $conn->query($sql); 
 }
 
-function getValueDb($table, $field)
+function getAllValuesDb($table)
 {
     global $conn;
-    $sql="SELECT `$field` FROM `$table` WHERE 1;";
+    $sql="SELECT * FROM `$table` WHERE 1;";
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
 
-    echo json_encode($outp);
+    echo json_encode($outp). "<br>";
+    echo $outp["access_token"] ."<br>" ;
     return $outp[$field];
 
   
