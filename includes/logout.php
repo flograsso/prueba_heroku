@@ -1,5 +1,5 @@
 <?php
-require_once ('includes/phpFunctions.php');
+require_once ('phpFunctions.php');
 sec_session_start();
  
 // Desconfigura todos los valores de sesión.
