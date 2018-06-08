@@ -27,13 +27,11 @@ function getAllValuesDb($table)
     $result = $conn->query($sql);
     $outp = array();
     $outp = $result->fetch_all(MYSQLI_ASSOC);
-    
+
     return json_encode($outp);
 
   
 }
-
-
 
 function emptyDB($table)
 {
@@ -42,8 +40,6 @@ function emptyDB($table)
     $conn->query($sql);
  
 }
-
-
 
 
 ?>

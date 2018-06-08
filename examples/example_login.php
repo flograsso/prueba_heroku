@@ -5,21 +5,20 @@ require ('../configApp.php');
 include ("../dbFunctions.php");
 
 
-
+//Variable que mantiene el estado de la conexión
+$authenticateState=false;
 
 $meli = new Meli($appId, $secretKey);
 
+//Me traigo los datos de la DB
 $data = json_decode(getAllValuesDb("token"));
 $access_token=$data[0]->access_token;
 $refresh_token=$data[0]->refresh_token;
 $expires_in=$data[0]->expires_in;
 
-echo "Access token:".$access_token ."<br>";
-echo "Referesh token:".$refresh_token ."<br>";
-echo "Expires:".$expires_in ."<br>";
 
-
-if(isset($_GET['code']) || !empty($access_token)) {	
+if(isset($_GET['code']) || !empty($access_token)) 
+{	
 
 	if(isset($_GET['code']) && empty($access_token)) {
 		echo "No hay token y si hay code <br>";
@@ -31,6 +30,7 @@ if(isset($_GET['code']) || !empty($access_token)) {
 			setValueDb("token","access_token,refresh_token,expires_in","'" . $user['body']->access_token . "','" . $user['body']->refresh_token. "','" . (time() + $user['body']->expires_in)."'");
 
 			echo "Autenticado<br>";
+			$authenticateState=true;
 			
 		}catch(Exception $e){
 			echo "Exception: ",  $e->getMessage(), "\n";
@@ -51,6 +51,7 @@ if(isset($_GET['code']) || !empty($access_token)) {
 				updateAllValuesDb("token",'refresh_token',$refresh['body']->refresh_token);
 
 				echo "Token actualizado<br>";
+				$authenticateState=true;
 
 			} catch (Exception $e) {
 			  	echo "Exception: ",  $e->getMessage(), "\n";
@@ -58,15 +59,13 @@ if(isset($_GET['code']) || !empty($access_token)) {
 		}
 		else
 			echo "Sesion NO expirada. Correctamente autenticado<br>";
+			$authenticateState=true;
 	}
-
-	echo '<pre>';
-		print_r($_SESSION);
-	echo '</pre>';
-
-} else {
-	echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/examples/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
-}
+} 
+	else 
+	{
+		echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/examples/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
+	}
 
 
 
