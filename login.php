@@ -1,5 +1,5 @@
 <?php
-include_once '/includes/phpFunctions.php';
+include_once ("/includes/phpFunctions.php");
 sec_session_start();
 
 global $conn;

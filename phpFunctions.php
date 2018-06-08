@@ -1,8 +1,8 @@
 <?php
 
-require_once ('includes/Meli/meli.php');
-require_once ('includes/configApp.php');
-include ("includes/dbFunctions.php");
+require_once ('/includes/Meli/meli.php');
+require_once ('/includes/configApp.php');
+include ("/includes/dbFunctions.php");
 
 function sec_session_start() {
     $session_name = 'meliSession';   // Configura un nombre de sesión personalizado.
