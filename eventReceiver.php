@@ -15,7 +15,7 @@ http_response_code(200);
 $date1='2018-04-05';
 $date2='2018-04-05';
 
-echo "id: " . $id ;
+echo json_encode($data);
 
 
 
