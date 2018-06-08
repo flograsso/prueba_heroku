@@ -8,6 +8,7 @@ function setValueDb($table, $fields, $values)
 {
     global $conn;
     $sql="INSERT INTO `$table` ($field) VALUES ($value);";
+    echo $sql;
     $conn->query($sql);
 
 }
