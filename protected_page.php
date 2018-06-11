@@ -31,11 +31,15 @@ sec_session_start();
                         print_r($result);
                         echo '</pre>';
                         
-                        
+                    
                         echo "Linea<br>";
-                        $aux=$result["body"];
+                        $answer=$result["body"]->answer;
+                        echo $answer->text;
+                        $answer= json_decode($result["body"]->answer);
+                        echo $answer->text;
                         echo $aux["answer"]["text"];
                         echo $aux["text"];
+                    
                        //echo "VAR=" .  ([$result["body"]->answer]->text);
 
                     }
