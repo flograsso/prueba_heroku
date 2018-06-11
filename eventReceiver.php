@@ -12,9 +12,10 @@ http_response_code(200);
 $topic=($data["topic"]);
 $resource=($data["resource"]);
 
-switch ($topic) {
+switch ($topic) 
+{
 
-    case "questions":
+    case questions:
         $resource= ereg_replace("[^0-9]", "", $resource);
         setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL");
         break;
@@ -26,8 +27,6 @@ switch ($topic) {
         }
         $str=$str."}";
         setValueDb("preguntas","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'1','$topic','$resource',NULL,'$str',NULL,NULL,NULL,NULL");
-
-
 }
 
 $date1='2018-04-05';
