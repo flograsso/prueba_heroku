@@ -175,9 +175,7 @@ function procesarPregunta($idPregunta)
     {
         $answer=$result["body"]->answer;
         $from=$result["body"]->from;
-        setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$resource',".$result["body"] ->text .",".$result["body"] ->status.",". $result["body"] ->date_created . ",". $answer->text . "," .$answer->date_created . ",". $from->id . "," . $result["body"] ->item_id . "," ."" . ",". $from->answered_questions);
-
-
+        setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$resource',".$result["body"] ->text .",".$result["body"] ->status.",". $result["body"] ->date_created . ",". $answer->text . "," .$answer->date_created . ",". $from->id . "," . $result["body"] ->item_id . "," . round((strtotime($answer->date_created) - strtotime($result["body"]->date_created))/60) . ",". $from->answered_questions);
     }
     else
     {

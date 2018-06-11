@@ -16,7 +16,7 @@ switch($topic)
 {
     case "questions":
         $resource= preg_replace("/[^0-9]/","", $resource);
-        setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL");
+        procesarPregunta($resource);
         break;
 
     default:
