@@ -1,5 +1,6 @@
 <?php
 require_once ('includes/phpFunctions.php');
+include ("includes/example_login.php");
  
 sec_session_start();
 ?>
