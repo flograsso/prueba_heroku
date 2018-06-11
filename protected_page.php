@@ -30,10 +30,10 @@ sec_session_start();
                         echo '<pre>';
                         print_r($result);
                         echo '</pre>';
-                        
-                    
-                        echo "Linea<br>";
                         $answer=$result["body"]->answer;
+                        echo "diff" . $answer->date_created - $result["body"]->date_created;
+                        echo "Linea<br>";
+                        
                         echo $answer->text;
                         $answer= json_decode($result["body"]->answer);
                         echo $answer->text;
