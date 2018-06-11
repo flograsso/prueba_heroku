@@ -3,6 +3,7 @@
 <?php
 
 include ("includes/example_login.php");
+require_once("includes/phpFunctions.php");
 global $conn;
 
 $data = json_decode(file_get_contents('php://input'), true);
