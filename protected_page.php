@@ -1,6 +1,7 @@
 <?php
 include ("includes/example_login.php");
 require_once ('includes/phpFunctions.php');
+global $meli;
 
  
 sec_session_start();
