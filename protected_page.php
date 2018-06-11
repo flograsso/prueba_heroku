@@ -31,7 +31,7 @@ sec_session_start();
                         print_r($result);
                         echo '</pre>';
                         $answer=$result["body"]->answer;
-                        echo "diff" . $answer->date_created - $result["body"]->date_created;
+                        echo "diff" . strtotime($answer->date_created) - strtotime($result["body"]->date_created);
                         echo "Linea<br>";
                         
                         echo $answer->text;
