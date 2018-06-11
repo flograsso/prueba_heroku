@@ -3,6 +3,7 @@
 <?php
 include ("includes/example_login.php");
 $data = json_decode(file_get_contents('php://input'), true);
+echo "Data". $data;
 http_response_code(200);
     $id = ($data["user_id"]);
     $topic=($data["topic"]);
