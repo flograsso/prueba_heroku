@@ -11,15 +11,21 @@ sec_session_start();
         <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
-        <?php if (login_check($mysqli) == true) : ?>
-            <p>¡Bienvenido, <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                Este es un ejemplo de página protegida.  Para acceder a esta página, los usuarios
-                deberán iniciar su sesión.  En algún momento, también verificaremos el rol 
-                del usuario para que las páginas puedan determinar el tipo de usuario 
-                autorizado para acceder a la página.
-            </p>
-            <p>Regresar a la<a href="index.php">página de inicio de sesión.</a></p>
+        <?php if (login_check($mysqli) == true) : 
+                $json=getAllValuesDb('questions');
+                $params = array();
+                $array = json_decode( $json, true );
+                foreach($array as $item) { //foreach element in $arr
+                    $url = '/question/' . $item['idPregunta'];
+                    $result = $meli->get($url, $params);
+                    echo '<pre>';
+                    print_r($result);
+                    echo '</pre>';
+                }
+               
+
+
+            ?>
         <?php else : ?>
             <p>
                 <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="index.php">login</a>.
