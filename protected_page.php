@@ -25,18 +25,18 @@ sec_session_start();
                     echo $url;
                     $result = $meli->get($url, array('access_token' => $access_token));
 
-                    if ($result[httpCode]==200)
+                    if ($result["httpCode"]==200)
                     {
                         echo '<pre>';
                         print_r($result);
                         echo '</pre>';
                         
-                       echo "VAR=" .  $result[body][text];
+                       echo "VAR=" .  $result["body"]["text"];
 
                     }
                     else
                     {
-                        echo $result[httpCode];
+                        echo $result["httpCode"];
                     }
 
                 }
