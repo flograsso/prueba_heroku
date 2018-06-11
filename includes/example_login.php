@@ -24,7 +24,7 @@ if(isset($_GET['code']) || !empty($access_token))
 		echo "No hay token y si hay code <br>";
 		//Con el code pido un token
 		try{
-			$redirectURI='https://pruebameli.herokuapp.com/examples/example_login.php';
+			$redirectURI='https://pruebameli.herokuapp.com/includes/example_login.php';
 			$user = $meli->authorize($_GET["code"], $redirectURI);
 			// Now we create the sessions with the authenticated user
 			setValueDb("token","access_token,refresh_token,expires_in","'" . $user['body']->access_token . "','" . $user['body']->refresh_token. "','" . (time() + $user['body']->expires_in)."'");
