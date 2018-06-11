@@ -12,9 +12,8 @@ http_response_code(200);
 $topic=($data["topic"]);
 $resource=($data["resource"]);
 
-switch ($topic) 
+switch($topic) 
 {
-
     case questions:
         $resource= ereg_replace("[^0-9]", "", $resource);
         setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL");
