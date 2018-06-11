@@ -32,7 +32,9 @@ sec_session_start();
                         print_r($result);
                         echo '</pre>';
                         
-                        $valores = json_decode($result["body"], true );
+                        $valores = $result["body"];
+                        echo "Linea<br>";
+                        var_dump($valores);
                        echo "VAR=" .  $valores["text"];
 
                     }
