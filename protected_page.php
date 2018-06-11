@@ -2,6 +2,7 @@
 include ("includes/example_login.php");
 require_once ('includes/phpFunctions.php');
 global $meli;
+global $access_token;
 
  
 sec_session_start();
@@ -20,7 +21,7 @@ sec_session_start();
                 $array = json_decode( $json, true );
                 foreach($array as $item) { //foreach element in $arr
                     $url = '/question/' . $item['idPregunta'];
-                    $result = $meli->get($url, $params);
+                    $result = $meli->get($url, array('access_token' => $access_token));
                     echo '<pre>';
                     print_r($result);
                     echo '</pre>';
