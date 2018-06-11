@@ -33,13 +33,7 @@ function getAllValuesDb($table)
   
 }
 
-function emptyDB($table)
-{
-    global $conn;
-    $sql="DELETE FROM `$table` WHERE 1;";
-    $conn->query($sql);
- 
-}
+
 
 
 ?>
