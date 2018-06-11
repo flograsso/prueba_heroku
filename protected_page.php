@@ -19,6 +19,7 @@ sec_session_start();
                 include ("includes/example_login.php");
                 $json=getAllValuesDb('questions');
                 $params = array();
+                $valores = array();
                 $array = json_decode( $json, true );
                 foreach($array as $item) { //foreach element in $arr
                     $url = '/questions/' . $item['idPregunta'];
@@ -31,7 +32,8 @@ sec_session_start();
                         print_r($result);
                         echo '</pre>';
                         
-                       echo "VAR=" .  $result["body"]["text"];
+                        $valores = json_decode($result["body"], true );
+                       echo "VAR=" .  $valores["text"];
 
                     }
                     else
