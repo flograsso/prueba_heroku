@@ -11,7 +11,7 @@ http_response_code(200);
 
 $topic=($data["topic"]);
 $resource=($data["resource"]);
-
+echo $topic;
 switch($topic) 
 {
     case questions:
