@@ -65,7 +65,7 @@ if(isset($_GET['code']) || !empty($access_token))
 } 
 	else 
 	{
-		echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/examples/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
+		echo '<a href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id='.$appId.'&redirect_uri=https://pruebameli.herokuapp.com/includes/example_login.php">Login using MercadoLibre oAuth 2.0</a>';
 	}
 
 
