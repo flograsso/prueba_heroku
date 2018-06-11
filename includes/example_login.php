@@ -2,7 +2,7 @@
 
 require_once ('Meli/meli.php');
 require_once ('configApp.php');
-include ("dbFunctions.php");
+require_once ("dbFunctions.php");
 
 
 //Variable que mantiene el estado de la conexión
