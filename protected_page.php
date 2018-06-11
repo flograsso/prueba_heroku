@@ -21,7 +21,7 @@ sec_session_start();
                 $params = array();
                 $array = json_decode( $json, true );
                 foreach($array as $item) { //foreach element in $arr
-                    $url = '/question/' . $item['idPregunta'];
+                    $url = '/questions/' . $item['idPregunta'];
                     echo $url;
                     $result = $meli->get($url, array('access_token' => $access_token));
                     echo '<pre>';
