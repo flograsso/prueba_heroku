@@ -1,5 +1,5 @@
 <?php
-include ("includes/example_login.php");
+
 require_once ('includes/phpFunctions.php');
 global $meli;
 global $access_token;
@@ -16,6 +16,7 @@ sec_session_start();
     </head>
     <body>
         <?php if (login_check($mysqli) == true) : 
+                include ("includes/example_login.php");
                 $json=getAllValuesDb('questions');
                 $params = array();
                 $array = json_decode( $json, true );

@@ -16,7 +16,7 @@ function setValueDb($table, $fields, $values)
 function updateAllValuesDb($table, $field, $value)
 {
     global $conn;
-    $sql="UPDATE `$table` SET '$field'='$value' WHERE 1;";
+    $sql="UPDATE `$table` SET $field='$value' WHERE 1;";
     $conn->query($sql); 
 }
 

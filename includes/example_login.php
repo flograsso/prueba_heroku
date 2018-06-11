@@ -46,9 +46,10 @@ if(isset($_GET['code']) || !empty($access_token))
 				$refresh = $meli->refreshAccessToken();
 
 				// Now we create the sessions with the new parameters
-				updateAllValuesDb("token",'access_token',$refresh['body']->access_token);
-				updateAllValuesDb("token",'expires_in',(time() + $refresh['body']->expires_in));
-				updateAllValuesDb("token",'refresh_token',$refresh['body']->refresh_token);
+				updateAllValuesDb("token","access_token",$refresh['body']->access_token);
+				echo "New Token" . $refresh['body']->access_token;
+				updateAllValuesDb("token","expires_in",(time() + $refresh['body']->expires_in));
+				updateAllValuesDb("token","refresh_token",$refresh['body']->refresh_token);
 
 				echo "Token actualizado<br>";
 				$authenticateState=true;
