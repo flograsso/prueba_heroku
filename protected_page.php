@@ -23,7 +23,6 @@ sec_session_start();
                 $array = json_decode( $json, true );
                 foreach($array as $item) { //foreach element in $arr
                     $url = '/questions/' . $item['idPregunta'];
-                    echo $url;
                     $result = $meli->get($url, array('access_token' => $access_token));
 
                     if ($result["httpCode"]==200)
@@ -34,8 +33,10 @@ sec_session_start();
                         
                         
                         echo "Linea<br>";
-                
-                       echo "VAR=" .  $result["body"] ->text;
+                        $aux=$result["body"];
+                        echo $aux["answer"]["text"];
+                        echo $aux["text"];
+                       //echo "VAR=" .  ([$result["body"]->answer]->text);
 
                     }
                     else

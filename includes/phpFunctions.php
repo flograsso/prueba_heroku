@@ -163,4 +163,26 @@ function esc_url($url) {
     }
 }
 
+function procesarPregunta($idPregunta)
+{
+    include ("includes/example_login.php");
+    global $meli;
+    global $access_token;
+    $url = '/questions/' . $idPregunta;
+    $result = $meli->get($url, array('access_token' => $access_token));
+
+    if ($result["httpCode"]==200)
+    {
+        setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',".$result["body"] ->text .",".$result["body"] ->status.",". $result["body"] ->date_created . ",". NULL,NULL,NULL,NULL,NULL,NULL,NULL");
+
+
+    }
+    else
+    {
+        echo "Error en httpCode" . $result["httpCode"];
+    }
+
+
+}
+
 ?>
