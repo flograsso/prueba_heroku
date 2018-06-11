@@ -2,7 +2,7 @@
 
 require_once ('Meli/meli.php');
 require_once ('configApp.php');
-include ("dbFunctions.php");
+require_once ("dbFunctions.php");
 
 function sec_session_start() {
     $session_name = 'meliSession';   // Configura un nombre de sesión personalizado.
