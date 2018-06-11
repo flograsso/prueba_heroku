@@ -173,7 +173,7 @@ function procesarPregunta($idPregunta)
 
     if ($result["httpCode"]==200)
     {
-        setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',".$result["body"] ->text .",".$result["body"] ->status.",". $result["body"] ->date_created . ",". NULL,NULL,NULL,NULL,NULL,NULL,NULL");
+        //setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg","'$resource',".$result["body"] ->text .",".$result["body"] ->status.",". $result["body"] ->date_created . ",". NULL,NULL,NULL,NULL,NULL,NULL,NULL");
 
 
     }
