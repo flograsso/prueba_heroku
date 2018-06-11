@@ -24,9 +24,21 @@ sec_session_start();
                     $url = '/questions/' . $item['idPregunta'];
                     echo $url;
                     $result = $meli->get($url, array('access_token' => $access_token));
-                    echo '<pre>';
-                    print_r($result);
-                    echo '</pre>';
+
+                    if ($result[httpCode]==200)
+                    {
+                        echo '<pre>';
+                        print_r($result);
+                        echo '</pre>';
+                        
+                       echo "VAR=" .  $result[body][text];
+
+                    }
+                    else
+                    {
+                        echo $result[httpCode];
+                    }
+
                 }
                
 
@@ -34,7 +46,7 @@ sec_session_start();
             ?>
         <?php else : ?>
             <p>
-                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="index.php">login</a>.
+                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="login.php">login</a>.
             </p>
         <?php endif; ?>
     </body>
