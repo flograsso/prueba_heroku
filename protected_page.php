@@ -61,11 +61,11 @@ sec_session_start();
                
 
 
-            ?>
-        <?php else : ?>
-            <p>
-                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="login.php">login</a>.
-            </p>
-        <?php endif; ?>
+           
+            else  :
+                header("Location: login.php?error=Debe iniciar sesión para acceder a esta página");
+        
+        endif; 
+        ?>
     </body>
 </html>
