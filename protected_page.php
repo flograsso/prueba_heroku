@@ -24,7 +24,6 @@ sec_session_start();
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
         -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,17 +57,21 @@ sec_session_start();
                 include ("includes/example_login.php");
                 ?>
 
-        <form class="form-horizontal" >
+        <form class="form-horizontal">
             <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Email:</label>
+                <label class="control-label col-sm-3" for="consulta">Consulta:</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    <input  class="form-control" id="consulta" placeholder="Query">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Submit</button>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="comment">Resultado:</label>
+                <textarea class="form-control" rows="5" id="resultado"></textarea>
             </div>
         </form>
     <?php
