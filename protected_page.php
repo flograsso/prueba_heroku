@@ -92,6 +92,9 @@ sec_session_start();
         <script src="assets/js/scripts.js"></script>
         <script type="text/JavaScript" src="js/forms.js"></script>
         <script type="text/JavaScript" src="js/functions.js"></script>
+        <script type="text/JavaScript" src="js/jquery.beautify-json.js"></script>
+        
+
         
     </body>
 </html>

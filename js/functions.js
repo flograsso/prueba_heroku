@@ -11,11 +11,18 @@ $(document).ready(function(){
                         'query':$("#consulta").val()
                     },
             success:  function (response) {
-                $("#resultado").val(JSON.stringify(response, null, "\t"));
+                $("#resultado").val(response);
+                $('#resultado').beautifyJSON();
+
                 
             
             }
         });
     });
+
+    $('#resultado').beautifyJSON({
+        type: "plain"
+      });
+      
 
 });
