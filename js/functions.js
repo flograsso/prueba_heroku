@@ -12,7 +12,7 @@ $(document).ready(function(){
                     },
             success:  function (response) {
                 $("#resultado").val(response);
-                $('#resultado').beautifyJSON();
+ 
 
                 
             
@@ -20,9 +20,7 @@ $(document).ready(function(){
         });
     });
 
-    $('#resultado').beautifyJSON({
-        type: "plain"
-      });
+    
       
 
 });
