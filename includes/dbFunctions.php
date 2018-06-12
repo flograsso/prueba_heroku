@@ -28,10 +28,25 @@ function getAllValuesDb($table)
     $outp = $result->fetch_all(MYSQLI_ASSOC);
 
     return json_encode($outp);
-
-  
 }
 
+function checkExistsValue($table,$field,$value)
+{
+    global $conn; 
+    $sql="SELECT * FROM `$table` WHERE `$field`='$value';";
+    $result = $conn->query($sql);
+    if ($result && mysql_num_rows($result) > 0)
+
+    {
+       return true;
+    }
+else
+    {
+        return false;
+    }
+}
+
+}
 
 
 

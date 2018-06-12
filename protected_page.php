@@ -17,6 +17,9 @@ sec_session_start();
     <body>
         <?php if (login_check($mysqli) == true) : 
                 include ("includes/example_login.php");
+
+                echo "Chequeando valor" . checkExistsValue("questions","idPregunta","5591471556") . "<br>";
+
                 $json=getAllValuesDb('questions');
                 $params = array();
         
