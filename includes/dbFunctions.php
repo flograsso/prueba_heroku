@@ -36,9 +36,9 @@ function checkExistsValue($table,$field,$value)
     $sql="SELECT * FROM `$table` WHERE `$field`='$value';";
     $result = $conn->query($sql);
     if ($result->num_rows > 0)
-       return true;
+       return "OK";
     else
-        return false;
+        return "NO";
     
 }
 
