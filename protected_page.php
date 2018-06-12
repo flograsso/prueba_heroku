@@ -57,23 +57,22 @@ sec_session_start();
                 include ("includes/example_login.php");
                 ?>
 
-        <form class="form-horizontal">
             <div class="form-group">
                 <label class="control-label" for="consulta">Consulta:</label>
                 <div >
-                    <input  class="form-control" id="consulta" placeholder="Query">
+                    <input class="form-control" id="consulta" placeholder="Query">
                 </div>
             </div>
             <div class="form-group">
                 <div >
-                    <button class="btn btn-default" id="enviarQuery">Submit</button>
+                    <button type="button" class="btn btn-default" id="enviarQuery">Submit</button>
                 </div>
             </div>
             <div class="form-group">
                 <label for="comment">Resultado:</label>
                 <textarea class="form-control" rows="5" id="resultado"></textarea>
             </div>
-        </form>
+        
     <?php
                 }
                
