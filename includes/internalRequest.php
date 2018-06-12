@@ -3,9 +3,6 @@
 //header('Content-Type: application/json');
 
 require ('phpFunctions.php');
-global $meli;
-
-
 
 $METHOD=$_POST["method"];
 
@@ -13,7 +10,7 @@ switch ($METHOD)
 {
     case "executeQuery":
         $path=$_POST["query"];
-        echo json_encode(getMeli($path));
+        echo json_encode(procesarPregunta($path));
         break;
 
 	default:
