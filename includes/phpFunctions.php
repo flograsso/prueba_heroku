@@ -163,6 +163,17 @@ function esc_url($url) {
     }
 }
 
+//$path = /questions/....
+function getMeli($path)
+{
+    global $meli;
+    global $access_token;
+    $result = $meli->get($path, array('access_token' => $access_token));
+    return $result;
+    
+
+}
+
 function procesarPregunta($idPregunta)
 {
     global $meli;

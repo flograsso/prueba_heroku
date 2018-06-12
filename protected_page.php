@@ -66,7 +66,7 @@ sec_session_start();
             </div>
             <div class="form-group">
                 <div >
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default" id="enviarQuery">Submit</button>
                 </div>
             </div>
             <div class="form-group">
@@ -92,5 +92,7 @@ sec_session_start();
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
         <script type="text/JavaScript" src="js/forms.js"></script>
+        <script type="text/JavaScript" src="js/functions.js"></script>
+        
     </body>
 </html>
