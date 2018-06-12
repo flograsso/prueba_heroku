@@ -210,7 +210,7 @@ function diffDatesSeg($dateA,$dateQ)
 }
 
 function normaliza ($cadena){
- 
+        /*
         //Codificamos la cadena en formato utf8 en caso de que nos de errores
         $cadena = utf8_encode($cadena);
      
@@ -246,7 +246,7 @@ function normaliza ($cadena){
             array('n', 'N', 'c', 'C'),
             $cadena
         );
-     
+     */
         return $cadena;
     
 }
