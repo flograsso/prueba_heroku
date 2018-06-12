@@ -163,6 +163,17 @@ function esc_url($url) {
     }
 }
 
+//$path = /questions/....
+function getMeli($path)
+{   
+    global $meli;
+    global $access_token;
+    $result = $meli->get($path, array('access_token' => $access_token));
+    return $result;
+    
+
+}
+
 function procesarPregunta($idPregunta)
 {
     global $meli;
@@ -174,11 +185,21 @@ function procesarPregunta($idPregunta)
     {
         $answer=$result["body"]->answer;
         $from=$result["body"]->from;
-        if ($result["body"] ->status =="ANSWERED")
-            setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "','". normaliza($answer->text) . "','" .$answer->date_created . "','". $from->id . "','" . $result["body"] ->item_id . "','" . round((strtotime($answer->date_created) - strtotime($result["body"]->date_created))/60) . "','". $from->answered_questions . "'");
+        
+        if (checkExistsValue('questions','idPregunta',$idPregunta))
+        {
+            updateValueDb("questions",'fechaRespuesta',$answer->date_created,'idPregunta',$idPregunta);
+            updateValueDb("questions",'textoRespuesta',$answer->text,'idPregunta',$idPregunta);
+            updateValueDb("questions",'demoraRtaSeg',diffDatesSeg($answer->date_created,$result["body"]->date_created),'idPregunta',$idPregunta);
+            updateValueDb("questions",'estadoPregunta',$result["body"]->status,'idPregunta',$idPregunta);
+        }
         else
-            setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "',NULL,NULL,'" . $from->id . "','" . $result["body"] ->item_id . "',NULL,'". $from->answered_questions . "'");
-
+        {
+            if ($result["body"] ->status =="ANSWERED")
+                setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". $result["body"] ->text ."','".$result["body"] ->status."','". $result["body"] ->date_created . "','". $answer->text . "','" .$answer->date_created . "','". $from->id . "','" . $result["body"] ->item_id . "','" . diffDatesSeg($answer->date_created,$result["body"]->date_created) . "','". $from->answered_questions . "'");
+            else
+                setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". $result["body"] ->text ."','".$result["body"] ->status."','". $result["body"] ->date_created . "',NULL,NULL,'" . $from->id . "','" . $result["body"] ->item_id . "',NULL,'". $from->answered_questions . "'");
+        }
     }
     else
     {
@@ -188,46 +209,11 @@ function procesarPregunta($idPregunta)
 
 }
 
-function normaliza ($cadena){
- 
-        //Codificamos la cadena en formato utf8 en caso de que nos de errores
-        $cadena = utf8_encode($cadena);
-     
-        //Ahora reemplazamos las letras
-        $cadena = str_replace(
-            array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
-            array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
-            $cadena
-        );
-     
-        $cadena = str_replace(
-            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
-            array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
-            $cadena );
-     
-        $cadena = str_replace(
-            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
-            array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
-            $cadena );
-     
-        $cadena = str_replace(
-            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
-            array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
-            $cadena );
-     
-        $cadena = str_replace(
-            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
-            array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
-            $cadena );
-     
-        $cadena = str_replace(
-            array('ñ', 'Ñ', 'ç', 'Ç'),
-            array('n', 'N', 'c', 'C'),
-            $cadena
-        );
-     
-        return $cadena;
-    
+function diffDatesSeg($dateA,$dateQ)
+{
+    return round(strtotime($dateA) - strtotime($dateQ));
 }
+
+
 
 ?>

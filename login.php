@@ -3,14 +3,6 @@ require_once ("includes/phpFunctions.php");
 sec_session_start();
 
 global $conn;
-
-if (login_check($conn) == true) {
-    $logged = 'in';
-} else {
-    $logged = 'out';
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -55,14 +47,13 @@ if (login_check($conn) == true) {
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                            <h1><strong>MeLi</strong> App</h1>
                             <div class="description">
-                            	<p>
-	                            	Login de app de MercadoLibre
-                            	</p>
+          
                                 <?php
                                     if (isset($_GET['error'])) {
-                                        echo '<p class="error">Error Logging In!</p>';
+                                        $error = filter_input(INPUT_GET, 'error', $filter = FILTER_SANITIZE_STRING);
+                                        echo '<p class="error" style="color:Tomato;" ><strong>'. $error. '</strong></p>';
                                     }
                                     ?> 
                             </div>
@@ -97,7 +88,7 @@ if (login_check($conn) == true) {
                     </div>
                     <div class="row">
                         <p> Si ha terminado, por favor<a href="includes/logout.php">cierre la sesión.</a></p>
-                        <p>Está conectado.<?php echo $logged ?>.</p>
+                        <p>Está conectado.<?php echo $email ?>.</p>
                     </div>
                 </div>
             </div>

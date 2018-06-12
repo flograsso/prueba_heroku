@@ -12,6 +12,13 @@ function setValueDb($table, $fields, $values)
 
 }
 
+function updateValueDb($table,$field,$newValue,$conditionField,$conditionValue)
+{
+    global $conn;
+    $sql="UPDATE `$table` SET `$field`='$newValue' WHERE `$conditionField`='$conditionValue' ;";
+    $conn->query($sql);
+}
+
 function updateLastValueDb($table, $field, $value)
 {
     global $conn;

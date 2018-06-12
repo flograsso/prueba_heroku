@@ -8,64 +8,93 @@ global $access_token;
 sec_session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <title>Inicio de sesión segura: Página protegida</title>
-        <link rel="stylesheet" href="styles/main.css" />
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+
+        <!-- CSS -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+        -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]> <script
+        src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script
+        src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="144x144"
+            href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="114x114"
+            href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="72x72"
+            href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="assets/ico/apple-touch-icon-57-precomposed.png">
+
     </head>
+
     <body>
-        <?php if (login_check($mysqli) == true) : 
+        <?php if (login_check($mysqli) == true) { 
                 include ("includes/example_login.php");
+                ?>
 
-                echo "Chequeando valor" . checkExistsValue("questions","idPregunta","5591471556") . "<br>";
-
-                $json=getAllValuesDb('questions');
-                $params = array();
+            <div class="form-group">
+                <label class="control-label" for="consulta">Consulta:</label>
+                <div >
+                    <input class="form-control" id="consulta" placeholder="Query">
+                </div>
+            </div>
+            <div class="form-group">
+                <div >
+                    <button type="button" class="btn btn-default" id="enviarQuery">Submit</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment">Resultado:</label>
+                <textarea class="form-control" rows="5" id="resultado"></textarea>
+            </div>
         
-                $array = json_decode( $json, true );
-                foreach($array as $item) { //foreach element in $arr
-                    $url = '/questions/' . $item['idPregunta'];
-                    $result = $meli->get($url, array('access_token' => $access_token));
-
-                    if ($result["httpCode"]==200)
-                    {
-                        echo '<pre>';
-                        print_r($result);
-                        echo '</pre>';
-                        $answer=$result["body"]->answer;
-                        echo $answer->date_created;
-                        echo "<br>";
-                        echo strtotime($answer->date_created);
-                        echo "<br>";
-                        echo strtotime($result["body"]->date_created);
-                        echo "<br>";
-                        echo "diff" . (strtotime($answer->date_created) - strtotime($result["body"]->date_created));
-                        echo "Linea<br>";
-                        
-                        echo $answer->text;
-                        $answer= json_decode($result["body"]->answer);
-                        echo $answer->text;
-                        echo $aux["answer"]["text"];
-                        echo $aux["text"];
-                    
-                       //echo "VAR=" .  ([$result["body"]->answer]->text);
-
-                    }
-                    else
-                    {
-                        echo $result["httpCode"];
-                    }
-
+    <?php
                 }
                
 
 
-            ?>
-        <?php else : ?>
-            <p>
-                <span class="error">No está autorizado para acceder a esta página.</span> Please <a href="login.php">login</a>.
-            </p>
-        <?php endif; ?>
+           
+            else  
+                header("Location: login.php?error=Debe iniciar sesión para acceder a esta página");
+        
+        
+        ?>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <script type="text/JavaScript" src="js/forms.js"></script>
+        <script type="text/JavaScript" src="js/functions.js"></script>
+
+        
+
+        
     </body>
 </html>
