@@ -165,7 +165,8 @@ function esc_url($url) {
 
 //$path = /questions/....
 function getMeli($path)
-{
+{   
+    include ("example_login.php");
     global $meli;
     global $access_token;
     $result = $meli->get($path, array('access_token' => $access_token));
