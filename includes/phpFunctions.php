@@ -174,11 +174,20 @@ function procesarPregunta($idPregunta)
     {
         $answer=$result["body"]->answer;
         $from=$result["body"]->from;
-        if ($result["body"] ->status =="ANSWERED")
-            setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "','". normaliza($answer->text) . "','" .$answer->date_created . "','". $from->id . "','" . $result["body"] ->item_id . "','" . round((strtotime($answer->date_created) - strtotime($result["body"]->date_created))/60) . "','". $from->answered_questions . "'");
+        
+        if (checkExistsValue('questions','idPregunta',$idPregunta))
+        {
+            updateValueDb("questions",'fechaRespuesta',$answer->date_created,'idPregunta',$idPregunta);
+            updateValueDb("questions",'textoRespuesta',normaliza($answer->text),'idPregunta',$idPregunta);
+            updateValueDb("questions",'demoraRtaSeg',diffDatesSeg($answer->date_created,$result["body"]->date_created),'idPregunta',$idPregunta);
+        }
         else
-            setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "',NULL,NULL,'" . $from->id . "','" . $result["body"] ->item_id . "',NULL,'". $from->answered_questions . "'");
-
+        {
+            if ($result["body"] ->status =="ANSWERED")
+                setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "','". normaliza($answer->text) . "','" .$answer->date_created . "','". $from->id . "','" . $result["body"] ->item_id . "','" . diffDatesSeg($answer->date_created,$result["body"]->date_created) . "','". $from->answered_questions . "'");
+            else
+                setValueDb("questions","idPregunta,textoPregunta,estadoPregunta,fechaRecibida,textoRespuesta,fechaRespuesta,idUsuario,idItem,demoraRtaSeg,cantPreguntasUsuario","'$idPregunta','". normaliza($result["body"] ->text) ."','".$result["body"] ->status."','". $result["body"] ->date_created . "',NULL,NULL,'" . $from->id . "','" . $result["body"] ->item_id . "',NULL,'". $from->answered_questions . "'");
+        }
     }
     else
     {
@@ -186,6 +195,16 @@ function procesarPregunta($idPregunta)
     }
 
 
+}
+
+function diffDatesSeg($dateA,$dateQ)
+{
+    echo "DateA" . $dateA . "<br>";
+    echo "DateQ" . $dateQ . "<br>";
+    echo "DateA" . strtotime($dateA) . "<br>";
+    echo "DateQ" . strtotime($dateQ) . "<br>";
+    
+    return round((strtotime($dateA) - strtotime($dateQ)));
 }
 
 function normaliza ($cadena){

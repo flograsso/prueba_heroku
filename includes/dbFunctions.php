@@ -12,6 +12,13 @@ function setValueDb($table, $fields, $values)
 
 }
 
+function updateValueDb($table,$field,$newValue,$conditionField,$conditionValue)
+{
+    global $conn;
+    $sql="UPDATE `$table` SET `$field`='$newValue' WHERE `$conditionField`='$conditionValue' ;";
+    $conn->query($sql);
+}
+
 function updateLastValueDb($table, $field, $value)
 {
     global $conn;
@@ -36,9 +43,9 @@ function checkExistsValue($table,$field,$value)
     $sql="SELECT * FROM `$table` WHERE `$field`='$value';";
     $result = $conn->query($sql);
     if ($result->num_rows > 0)
-       return "OK";
+       return true;
     else
-        return "NO";
+        return false;
     
 }
 
