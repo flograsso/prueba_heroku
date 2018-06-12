@@ -66,7 +66,7 @@ sec_session_start();
             </div>
             <div class="form-group">
                 <div >
-                    <button type="submit" class="btn btn-default" id="enviarQuery">Submit</button>
+                    <button class="btn btn-default" id="enviarQuery">Submit</button>
                 </div>
             </div>
             <div class="form-group">
