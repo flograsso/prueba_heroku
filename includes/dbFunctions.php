@@ -9,14 +9,13 @@ function setValueDb($table, $fields, $values)
     global $conn;
     $sql="INSERT INTO `$table` ($fields) VALUES ($values);";
     $conn->query($sql);
-    echo $sql . "<br>";
 
 }
 
 function updateLastValueDb($table, $field, $value)
 {
     global $conn;
-    $sql="UPDATE `$table` SET $field='$value' WHERE 1 LIMIT 1 ;";
+    $sql="UPDATE `$table` SET `$field`='$value' WHERE 1 LIMIT 1 ;";
     $conn->query($sql); 
 }
 

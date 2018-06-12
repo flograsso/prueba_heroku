@@ -8,13 +8,15 @@ require_once ("dbFunctions.php");
 //Variable que mantiene el estado de la conexión
 $authenticateState=false;
 
-$meli = new Meli($appId, $secretKey);
+
 
 //Me traigo los datos de la DB
 $data = json_decode(getAllValuesDb("token"));
 $access_token=$data[0]->access_token;
 $refresh_token=$data[0]->refresh_token;
 $expires_in=$data[0]->expires_in;
+
+$meli = new Meli($appId, $secretKey,$access_token,$refresh_token);
 
 
 if(isset($_GET['code']) || !empty($access_token)) 
