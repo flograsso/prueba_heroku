@@ -59,13 +59,13 @@ sec_session_start();
 
         <form class="form-horizontal">
             <div class="form-group">
-                <label class="control-label col-sm-3" for="consulta">Consulta:</label>
-                <div class="col-sm-10">
+                <label class="control-label" for="consulta">Consulta:</label>
+                <div >
                     <input  class="form-control" id="consulta" placeholder="Query">
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div >
                     <button type="submit" class="btn btn-default">Submit</button>
                 </div>
             </div>
