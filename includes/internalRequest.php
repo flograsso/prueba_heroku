@@ -2,7 +2,8 @@
 //setting header to json
 //header('Content-Type: application/json');
 
-require_once ('phpFunctions.php');
+require ('phpFunctions.php');
+global $meli;
 
 
 
