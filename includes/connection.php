@@ -17,6 +17,7 @@ if(!$conn){
 	die("Connection failed: " . $conn->error);
 }
 
+$acentos = $conn->query("SET NAMES 'utf8'");
 
 
 ?>
