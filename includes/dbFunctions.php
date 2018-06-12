@@ -36,17 +36,13 @@ function checkExistsValue($table,$field,$value)
     $sql="SELECT * FROM `$table` WHERE `$field`='$value';";
     $result = $conn->query($sql);
     if ($result && mysql_num_rows($result) > 0)
-
-    {
        return true;
-    }
-else
-    {
+    else
         return false;
-    }
+    
 }
 
-}
+
 
 
 
