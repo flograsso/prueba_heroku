@@ -11,7 +11,7 @@ $(document).ready(function(){
                         'query':$("#consulta").val()
                     },
             success:  function (response) {
-                $("#resultado").val(response);
+                $("#resultado").val(JSON.stringify(response, null, "\t"));
                 
             
             }
