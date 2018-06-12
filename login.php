@@ -55,15 +55,13 @@ if (login_check($conn) == true) {
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                            <h1><strong>MeLi</strong> App</h1>
                             <div class="description">
-                            	<p>
-	                            	Login de app de MercadoLibre
-                            	</p>
+          
                                 <?php
                                     if (isset($_GET['error'])) {
                                         $error = filter_input(INPUT_GET, 'error', $filter = FILTER_SANITIZE_STRING);
-                                        echo '<p class="error" >'. $error. '</p>';
+                                        echo '<p class="error" style="color:Tomato;" >'. $error. '</p>';
                                     }
                                     ?> 
                             </div>
