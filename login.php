@@ -62,7 +62,7 @@ if (login_check($conn) == true) {
                             	</p>
                                 <?php
                                     if (isset($_GET['error'])) {
-                                        $error = filter_input(INPUT_GET, 'err', $filter = FILTER_SANITIZE_STRING);
+                                        $error = filter_input(INPUT_GET, 'error', $filter = FILTER_SANITIZE_STRING);
                                         echo '<p class="error">'. $error. '</p>';
                                     }
                                     ?> 
