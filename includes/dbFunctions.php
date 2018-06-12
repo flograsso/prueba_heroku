@@ -13,10 +13,10 @@ function setValueDb($table, $fields, $values)
 
 }
 
-function updateAllValuesDb($table, $field, $value)
+function updateLastValueDb($table, $field, $value)
 {
     global $conn;
-    $sql="UPDATE `$table` SET $field='$value' WHERE 1;";
+    $sql="UPDATE `$table` SET $field='$value' WHERE 1 LIMIT 1 ;";
     $conn->query($sql); 
 }
 
