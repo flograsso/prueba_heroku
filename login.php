@@ -3,14 +3,6 @@ require_once ("includes/phpFunctions.php");
 sec_session_start();
 
 global $conn;
-
-if (login_check($conn) == true) {
-    $logged = 'in';
-} else {
-    $logged = 'out';
-}
-
-
 ?>
 
 <!DOCTYPE html>
