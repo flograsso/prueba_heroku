@@ -61,7 +61,7 @@ if (login_check($conn) == true) {
                                 <?php
                                     if (isset($_GET['error'])) {
                                         $error = filter_input(INPUT_GET, 'error', $filter = FILTER_SANITIZE_STRING);
-                                        echo '<p class="error" style="color:Tomato;" >'. $error. '</p>';
+                                        echo '<p class="error" style="color:Tomato;" ><strong>'. $error. '</strong></p>';
                                     }
                                     ?> 
                             </div>
