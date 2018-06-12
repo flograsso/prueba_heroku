@@ -200,9 +200,7 @@ function procesarPregunta($idPregunta)
 
 function diffDatesSeg($dateA,$dateQ)
 {
-
-    
-    return round((strtotime($dateA) - strtotime($dateQ))/60);
+    return round(strtotime($dateA) - strtotime($dateQ));
 }
 
 
