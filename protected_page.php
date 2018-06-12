@@ -23,8 +23,7 @@ sec_session_start();
             href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
         -->
@@ -58,20 +57,20 @@ sec_session_start();
         <?php if (login_check($mysqli) == true) { 
                 include ("includes/example_login.php");
                 ?>
-            <form class="form-horizontal" >
-            <div>
-                <label>Consulta</label>
+
+        <form class="form-horizontal" >
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
                 <div class="col-sm-10">
-                    <input class="form-control" id="consulta" placeholder="Query">
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
                 </div>
             </div>
-            <div>
+            <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Submit</button>
                 </div>
             </div>
         </form>
-        </div>
     <?php
                 }
                
