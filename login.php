@@ -96,7 +96,7 @@ if (login_check($conn) == true) {
                     </div>
                     <div class="row">
                         <p> Si ha terminado, por favor<a href="includes/logout.php">cierre la sesión.</a></p>
-                        <p>Está conectado.<?php echo $logged ?>.</p>
+                        <p>Está conectado.<?php echo $email ?>.</p>
                     </div>
                 </div>
             </div>
